@@ -1,5 +1,7 @@
 ### telnyx-blog
 
+<img src="https://github.com/cantyjeffrey/telnyx-blog/raw/master/static/demo.gif" width="200"/>
+
 #### Installation
 
 Install dependencies and run:
