@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 import App from "../components/App";
 import Hero from "../components/Hero";
 import PostList from "../components/PostList";
+import sortPostsByDate from "../utils/sortPostsByDate";
 
 const Index = ({ posts }) => (
   <App>
@@ -19,9 +20,10 @@ const Index = ({ posts }) => (
 
 Index.getInitialProps = async ({ req }) => {
   const url = `https://telnyx-api.jeffrey.engineer`;
-  const res = await fetch(`${url}/posts`);
-  const json = await res.json();
-  return { posts: json };
+  const response = await fetch(`${url}/posts`)
+    .then(response => response.json())
+    .then(data => sortPostsByDate(data));
+  return { posts: response };
 };
 
 export default Index;
